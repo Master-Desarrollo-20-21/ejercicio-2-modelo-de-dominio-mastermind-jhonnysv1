@@ -1,0 +1,48 @@
+@startuml
+
+Mastermind *-down-> Player
+Mastermind *-down-> Board
+Mastermind *-down-> Turn
+
+Board o-down-> Score
+Board o-down-> OptionsPosition
+Board o-down-> PositionCorrect
+Board o-down-> EvaluatingPosition
+
+Player *-down-> EvaluatingPlayer
+Player *-down-> GuessingPlayer
+
+EvaluatingPlayer o-down-> GoalEvaluating
+GuessingPlayer o-down-> GoalGuessing
+
+GoalEvaluating <|-down- PutInOrder
+GoalEvaluating <|-down- PutReevaluating
+GoalEvaluating <|-down- ColorPositionCorrect
+
+GoalGuessing <|-down- PutSimilarToOrder
+GoalGuessing <|-down- PutInOrderChangesWithEvaluating
+
+Turn -down-> "2" Player
+
+EvaluatingPlayer -down-> Board
+EvaluatingPlayer o-down-> "0..5" PieceEvaluating
+
+GuessingPlayer -down-> Board
+GuessingPlayer o-down-> "0..5" PieceGuessing
+
+Action <|-down- PutAction
+
+PieceGuessing *-down-> Color
+PieceEvaluating *-down-> Color
+Color <|-down- Red
+Color <|-down- Green
+Color <|-down- Yellow
+Color <|-down- Pink
+Color <|-down- Brown
+Color <|-down- Purple
+Color <|-down- Black
+Color <|-down- White
+Color <|-down- Gray
+Color <|-down- Orange
+
+@enduml
