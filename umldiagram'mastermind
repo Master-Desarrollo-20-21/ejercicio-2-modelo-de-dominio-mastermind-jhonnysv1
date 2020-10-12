@@ -30,8 +30,6 @@ EvaluatingPlayer o-down-> "0..5" PieceEvaluating
 GuessingPlayer -down-> Board
 GuessingPlayer o-down-> "0..5" PieceGuessing
 
-Action <|-down- PutAction
-
 PieceGuessing *-down-> Color
 PieceEvaluating *-down-> Color
 Color <|-down- Red
